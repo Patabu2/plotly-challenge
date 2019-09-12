@@ -53,7 +53,7 @@ function buildCharts(sample) {
         var trace = {
             labels: data['otu_ids'].slice(0,10),
             values: data['sample_values'].slice(0,10),
-            text: data['otu_labels'].slice(0,10),
+            hovertext: data['otu_labels'].slice(0,10),
             showlegend:true,
             type: 'pie'
         };
@@ -61,7 +61,7 @@ function buildCharts(sample) {
         var data1 = [trace];
         
         var layout = {
-            title:'KKCK'
+            title:'Top 10 sample values by Otu ID'
         };
         
         Plotly.newPlot('pie',data1, layout);
@@ -71,7 +71,7 @@ function buildCharts(sample) {
         var trace = {
             x: data['otu_ids'],
             y: data['sample_values'],
-            text:data['otu_labels'],
+            text: data['otu_labels'],
             mode: 'markers',
             marker:{
                 size: data['sample_values'],
@@ -82,7 +82,7 @@ function buildCharts(sample) {
         var data1 = [trace];
         
         var layout = {
-            title:'Burbujas locoshonas'
+            title:'Otu IDs vs. Sample Values'
         };
         
         Plotly.newPlot('bubble',data1, layout)
