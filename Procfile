@@ -1,1 +1,1 @@
-web: gunicorn plotly-challenge-campero.app:app
+web: gunicorn Belly_Button_Diversity.app:app
