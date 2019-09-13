@@ -1,1 +1,1 @@
-web: gunicorn plotly_challenge.app:app
+web: gunicorn plotly-challenge-campero.app:app
