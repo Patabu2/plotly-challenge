@@ -25,10 +25,63 @@ function buildMetadata(sample) {
             //console.log(key, value);
             
             });
+        
+        
+        
+        
+    // BONUS: Build the Gauge Chart
+    // buildGauge(data.WFREQ)
+    var gdTrace = {
+        domain: { x: [0,1], y: [0,1]}, // Hell knows what this does
+        value: data['WFREQ'], // The value of the indicator var
+        type:'indicator',  // Who knows
+        title:{
+            text:'Belly Button Washing Frequency'
+        }, // The title of the graph
+        mode: 'gauge+number', // Any combination of gauge,number and delta
+        gauge:{
+            axis:{
+                range:[0,9], // Set the range of the ticks
+                tickwidth: 1, // The width of the ticks
+                dtick: 1 //Set the step between ticks
+            },
+            bar:{color:'cyan'}, // Color of the value bar
+            steps:[ //Create different divisions in the gauge
+                {range:[0, 1], color:'#436E1F'},
+                {range:[1, 2], color: '#779E2F'},
+                {range:[2, 3], color:'#B6CF40'},
+                {range:[3, 4], color: '#FFFF52'},
+                {range:[4, 5], color:'#FFE567'},
+                {range:[5, 6], color: '#FFD17C'},
+                {range:[6, 7], color:'#FFC492'},
+                {range:[7, 8], color: '#FFC0A9'},
+                {range:[8, 9], color:'#FFC5C1'}
+            ],
+            threshold:{   //Create a line to threshold indicator
+                line:{
+                    color:'red',
+                    width:4
+                },
+                thickness:0.75,
+                value: 4.5 // The threshold value
+            }
+        }
+    };
+    
+    var gdData = [gdTrace];
+    
+    var layout = {
+        width:500,
+        height: 500,
+        margin: {t:0, b:0}
+    };
+        
+    Plotly.newPlot('gauge', gdData, layout);
+    
     });
 
-    // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
+
+    
 };
 
 
